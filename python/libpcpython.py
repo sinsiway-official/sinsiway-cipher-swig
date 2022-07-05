@@ -60,7 +60,15 @@ class _SwigNonDynamicMeta(type):
     """Meta class to enforce nondynamic attributes (no new attributes) for a class"""
     __setattr__ = _swig_setattr_nondynamic_class_variable(type.__setattr__)
 
-
+def _PetraIsOk(data):
+    if data == 'PcAPI_ERR_INVALID_SID':
+        raise Exception(data + ', Check the petra_cipher_api.log file for detailed errors.')
+    elif data == 'PcAPI_ERR_ENCRYPT_FAILED':
+        raise Exception(data + ', Check the petra_cipher_api.log file for detailed errors.')
+    elif data == 'PcAPI_ERR_DECRYPT_FAILED':
+        raise Exception(data + ', Check the petra_cipher_api.log file for detailed errors.')
+    else:
+        return data
 
 def PcAPI_initialize(info_file_path, credentials_pw):
     return _libpcpython.PcAPI_initialize(info_file_path, credentials_pw)
@@ -68,16 +76,20 @@ def PcAPI_initialize(info_file_path, credentials_pw):
 def PcAPI_getSession(client_ip):
     return _libpcpython.PcAPI_getSession(client_ip)
 
-def PcAPI_enc_id(api_sid, enc_col_id, src, src_len):
-    return _libpcpython.PcAPI_enc_id(api_sid, enc_col_id, src, src_len)
+def PcAPI_logCurrRequest(api_sid, sql_type, api_program, api_userid):
+    return _libpcpython.PcAPI_logCurrRequest(api_sid, sql_type, api_program, api_userid)
 
-def PcAPI_dec_id(api_sid, enc_col_id, src, src_len):
-    return _libpcpython.PcAPI_dec_id(api_sid, enc_col_id, src, src_len)
+def PcAPI_encrypt_with_id_l(api_sid, enc_col_id, src, src_len, sql_type):
+    return _PetraIsOk(_libpcpython.PcAPI_encrypt_with_id_l(api_sid, enc_col_id, src, src_len, sql_type))
 
-def PcAPI_enc_nm(api_sid, enc_col_name, src, src_len):
-    return _libpcpython.PcAPI_enc_nm(api_sid, enc_col_name, src, src_len)
+def PcAPI_encrypt_with_name_l(api_sid, enc_col_name, src, src_len, sql_type):
+    return _PetraIsOk(_libpcpython.PcAPI_encrypt_with_name_l(api_sid, enc_col_name, src, src_len, sql_type))
 
-def PcAPI_dec_nm(api_sid, enc_col_name, src, src_len):
-    return _libpcpython.PcAPI_dec_nm(api_sid, enc_col_name, src, src_len)
+def PcAPI_decrypt_with_id_l(api_sid, enc_col_id, src, src_len, sql_type):
+    return _PetraIsOk(_libpcpython.PcAPI_decrypt_with_id_l(api_sid, enc_col_id, src, src_len, sql_type))
+
+def PcAPI_decrypt_with_name_l(api_sid, enc_col_name, src, src_len, sql_type):
+    return _PetraIsOk(_libpcpython.PcAPI_decrypt_with_name_l(api_sid, enc_col_name, src, src_len, sql_type))
+
 
 

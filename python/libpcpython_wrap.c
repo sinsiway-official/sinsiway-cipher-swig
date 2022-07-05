@@ -3093,12 +3093,65 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PcAPI_enc_id(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_PcAPI_logCurrRequest(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  char *arg3 = (char *) 0 ;
+  char *arg4 = (char *) 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  PyObject *swig_obj[4] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "PcAPI_logCurrRequest", 4, 4, swig_obj)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_logCurrRequest" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PcAPI_logCurrRequest" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_logCurrRequest" "', argument " "3"" of type '" "char *""'");
+  }
+  arg3 = (char *)(buf3);
+  res4 = SWIG_AsCharPtrAndSize(swig_obj[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "PcAPI_logCurrRequest" "', argument " "4"" of type '" "char *""'");
+  }
+  arg4 = (char *)(buf4);
+  result = (int)PcAPI_logCurrRequest(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return resultobj;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PcAPI_encrypt_with_id_l(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   long long arg2 ;
   char *arg3 = (char *) 0 ;
   int arg4 ;
+  int arg5 ;
   int val1 ;
   int ecode1 = 0 ;
   long long val2 ;
@@ -3108,31 +3161,38 @@ SWIGINTERN PyObject *_wrap_PcAPI_enc_id(PyObject *SWIGUNUSEDPARM(self), PyObject
   int alloc3 = 0 ;
   int val4 ;
   int ecode4 = 0 ;
-  PyObject *swig_obj[4] ;
+  int val5 ;
+  int ecode5 = 0 ;
+  PyObject *swig_obj[5] ;
   char *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "PcAPI_enc_id", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "PcAPI_encrypt_with_id_l", 5, 5, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_enc_id" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_encrypt_with_id_l" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PcAPI_enc_id" "', argument " "2"" of type '" "long long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PcAPI_encrypt_with_id_l" "', argument " "2"" of type '" "long long""'");
   } 
   arg2 = (long long)(val2);
   res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_enc_id" "', argument " "3"" of type '" "char *""'");
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_encrypt_with_id_l" "', argument " "3"" of type '" "char *""'");
   }
   arg3 = (char *)(buf3);
   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_enc_id" "', argument " "4"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_encrypt_with_id_l" "', argument " "4"" of type '" "int""'");
   } 
   arg4 = (int)(val4);
-  result = (char *)PcAPI_enc_id(arg1,arg2,arg3,arg4);
+  ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "PcAPI_encrypt_with_id_l" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  result = (char *)PcAPI_encrypt_with_id_l(arg1,arg2,arg3,arg4,arg5);
   resultobj = SWIG_FromCharPtr((const char *)result);
   if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return resultobj;
@@ -3142,61 +3202,13 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PcAPI_dec_id(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  int arg1 ;
-  long long arg2 ;
-  char *arg3 = (char *) 0 ;
-  int arg4 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
-  int res3 ;
-  char *buf3 = 0 ;
-  int alloc3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  PyObject *swig_obj[4] ;
-  char *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args, "PcAPI_dec_id", 4, 4, swig_obj)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_dec_id" "', argument " "1"" of type '" "int""'");
-  } 
-  arg1 = (int)(val1);
-  ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PcAPI_dec_id" "', argument " "2"" of type '" "long long""'");
-  } 
-  arg2 = (long long)(val2);
-  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_dec_id" "', argument " "3"" of type '" "char *""'");
-  }
-  arg3 = (char *)(buf3);
-  ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_dec_id" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = (int)(val4);
-  result = (char *)PcAPI_dec_id(arg1,arg2,arg3,arg4);
-  resultobj = SWIG_FromCharPtr((const char *)result);
-  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
-  return resultobj;
-fail:
-  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PcAPI_enc_nm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_PcAPI_encrypt_with_name_l(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   char *arg2 = (char *) 0 ;
   char *arg3 = (char *) 0 ;
   int arg4 ;
+  int arg5 ;
   int val1 ;
   int ecode1 = 0 ;
   int res2 ;
@@ -3207,31 +3219,38 @@ SWIGINTERN PyObject *_wrap_PcAPI_enc_nm(PyObject *SWIGUNUSEDPARM(self), PyObject
   int alloc3 = 0 ;
   int val4 ;
   int ecode4 = 0 ;
-  PyObject *swig_obj[4] ;
+  int val5 ;
+  int ecode5 = 0 ;
+  PyObject *swig_obj[5] ;
   char *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "PcAPI_enc_nm", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "PcAPI_encrypt_with_name_l", 5, 5, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_enc_nm" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_encrypt_with_name_l" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
   res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PcAPI_enc_nm" "', argument " "2"" of type '" "char const *""'");
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PcAPI_encrypt_with_name_l" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = (char *)(buf2);
   res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_enc_nm" "', argument " "3"" of type '" "char *""'");
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_encrypt_with_name_l" "', argument " "3"" of type '" "char *""'");
   }
   arg3 = (char *)(buf3);
   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_enc_nm" "', argument " "4"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_encrypt_with_name_l" "', argument " "4"" of type '" "int""'");
   } 
   arg4 = (int)(val4);
-  result = (char *)PcAPI_enc_nm(arg1,(char const *)arg2,arg3,arg4);
+  ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "PcAPI_encrypt_with_name_l" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  result = (char *)PcAPI_encrypt_with_name_l(arg1,(char const *)arg2,arg3,arg4,arg5);
   resultobj = SWIG_FromCharPtr((const char *)result);
   if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
@@ -3243,12 +3262,70 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PcAPI_dec_nm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_PcAPI_decrypt_with_id_l(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  long long arg2 ;
+  char *arg3 = (char *) 0 ;
+  int arg4 ;
+  int arg5 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  long long val2 ;
+  int ecode2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  PyObject *swig_obj[5] ;
+  char *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "PcAPI_decrypt_with_id_l", 5, 5, swig_obj)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_decrypt_with_id_l" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PcAPI_decrypt_with_id_l" "', argument " "2"" of type '" "long long""'");
+  } 
+  arg2 = (long long)(val2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_decrypt_with_id_l" "', argument " "3"" of type '" "char *""'");
+  }
+  arg3 = (char *)(buf3);
+  ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_decrypt_with_id_l" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "PcAPI_decrypt_with_id_l" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  result = (char *)PcAPI_decrypt_with_id_l(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return resultobj;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PcAPI_decrypt_with_name_l(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   char *arg2 = (char *) 0 ;
   char *arg3 = (char *) 0 ;
   int arg4 ;
+  int arg5 ;
   int val1 ;
   int ecode1 = 0 ;
   int res2 ;
@@ -3259,31 +3336,38 @@ SWIGINTERN PyObject *_wrap_PcAPI_dec_nm(PyObject *SWIGUNUSEDPARM(self), PyObject
   int alloc3 = 0 ;
   int val4 ;
   int ecode4 = 0 ;
-  PyObject *swig_obj[4] ;
+  int val5 ;
+  int ecode5 = 0 ;
+  PyObject *swig_obj[5] ;
   char *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "PcAPI_dec_nm", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "PcAPI_decrypt_with_name_l", 5, 5, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_dec_nm" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PcAPI_decrypt_with_name_l" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
   res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PcAPI_dec_nm" "', argument " "2"" of type '" "char const *""'");
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PcAPI_decrypt_with_name_l" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = (char *)(buf2);
   res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_dec_nm" "', argument " "3"" of type '" "char *""'");
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PcAPI_decrypt_with_name_l" "', argument " "3"" of type '" "char *""'");
   }
   arg3 = (char *)(buf3);
   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_dec_nm" "', argument " "4"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PcAPI_decrypt_with_name_l" "', argument " "4"" of type '" "int""'");
   } 
   arg4 = (int)(val4);
-  result = (char *)PcAPI_dec_nm(arg1,(char const *)arg2,arg3,arg4);
+  ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "PcAPI_decrypt_with_name_l" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  result = (char *)PcAPI_decrypt_with_name_l(arg1,(char const *)arg2,arg3,arg4,arg5);
   resultobj = SWIG_FromCharPtr((const char *)result);
   if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
@@ -3299,10 +3383,11 @@ static PyMethodDef SwigMethods[] = {
 	 { "SWIG_PyInstanceMethod_New", SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { "PcAPI_initialize", _wrap_PcAPI_initialize, METH_VARARGS, NULL},
 	 { "PcAPI_getSession", _wrap_PcAPI_getSession, METH_O, NULL},
-	 { "PcAPI_enc_id", _wrap_PcAPI_enc_id, METH_VARARGS, NULL},
-	 { "PcAPI_dec_id", _wrap_PcAPI_dec_id, METH_VARARGS, NULL},
-	 { "PcAPI_enc_nm", _wrap_PcAPI_enc_nm, METH_VARARGS, NULL},
-	 { "PcAPI_dec_nm", _wrap_PcAPI_dec_nm, METH_VARARGS, NULL},
+	 { "PcAPI_logCurrRequest", _wrap_PcAPI_logCurrRequest, METH_VARARGS, NULL},
+	 { "PcAPI_encrypt_with_id_l", _wrap_PcAPI_encrypt_with_id_l, METH_VARARGS, NULL},
+	 { "PcAPI_encrypt_with_name_l", _wrap_PcAPI_encrypt_with_name_l, METH_VARARGS, NULL},
+	 { "PcAPI_decrypt_with_id_l", _wrap_PcAPI_decrypt_with_id_l, METH_VARARGS, NULL},
+	 { "PcAPI_decrypt_with_name_l", _wrap_PcAPI_decrypt_with_name_l, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
