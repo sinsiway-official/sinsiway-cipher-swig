@@ -1,5 +1,7 @@
 %module libpcphp
-
+%{
+#include "PcAPIL.h"
+%}
 int PcAPI_initialize(char* info_file_path,char* credentials_pw);
 int PcAPI_getSession(const char* client_ip);
 int PcAPI_encrypt(int api_sid, long long enc_col_id, unsigned char* src, int src_len, unsigned char* dst, unsigned int* dst_len);

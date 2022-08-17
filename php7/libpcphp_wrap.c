@@ -315,6 +315,7 @@ SWIGINTERNINLINE int SWIG_CheckState(int r) {
 
 
 #include <string.h>
+#include "PcAPIL.h"
 
 #ifdef __cplusplus
 extern "C" {
