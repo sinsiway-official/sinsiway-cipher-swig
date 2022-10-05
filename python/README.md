@@ -1,3 +1,24 @@
+# 빌드
+## python 설치
+```shell
+curl -LO 'https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tar.xz'
+tar xvf Python-3.7.5.tar.xz
+cd Python-3.7.5.tar.xz
+export PYVERSION=3.7.5
+export PYHOME=/usr/local/python$PYVERSION
+./configure --prefix=$PYHOME --enable-shared
+# prefix 경로에 install됨.
+make
+make install
+```
+## python 컴파일
+```shell
+export PATH=${PYHOME}/bin:${PATH}
+export LD_LIBRARY_PATH=${PYHOME}/lib:${LD_LIBRARY_PATH}
+cd ${build_home}/src/app/cipher/kred/local
+gcc -c -fPIC libpcpython_wrap.c -I${PYHOME}/Include -I${PYHOME}/include/python3.7m
+```
+
 # 주의 사항
 ## 인터페이스 파일에 #include "PcAPIL.h" 구문 포함 건. 
 swig 를 통한 python 라이브러리 빌드 시 반드시 인터페이스 파일(libpcpython.i) '#include "PcAPIL.h"' 구문이 포함되어야 한다. 
@@ -13,7 +34,7 @@ swig 를 통한 python 라이브러리 빌드 시 반드시 인터페이스 파�
 컴파일 시점에 에러가 발생 함. 
 
 # 이력
-## 암/복호화 데이터를 리턴하는 char* 리턴 함수 추가. 
+## 암/복호화 데이터를 리턴하는 char* 리턴 함수 추가. (농협은행)
 char* PcAPI_encrypt_with_id_l(int api_sid, long long enc_col_id, char* src, int src_len, int sql_type);
 char* PcAPI_encrypt_with_name_l(int api_sid, const char* enc_col_name, char* src, int src_len, int sql_type);
 char* PcAPI_decrypt_with_id_l(int api_sid, long long enc_col_id, char* src, int src_len, int sql_type);
